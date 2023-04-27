@@ -3,7 +3,7 @@
   background-color: gray;
 }
 
-.header-layout, .tech-skills-section, .summary-section {
+.header-layout, .tech-skills-section, .summary-section, .education-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,13 +20,30 @@
 .tech-skills-header,
 .tech-skills-paragraph,
 .projects-header,
-.projects-content {
+.projects-content,
+.work-history,
+.experience-header,
+.work-summary,
+.degree,
+.education-summary,
+.education-title,
+.education-header {
   margin: 5px 100px;
 }
 
-.projects-section {
+.projects-section, .experience-section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.work-history {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.work-location, .work-time {
+    margin: 5px 50px;
+}
