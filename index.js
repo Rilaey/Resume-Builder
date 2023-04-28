@@ -1,25 +1,14 @@
 // import required modules
-import chalk from 'chalk';
+import chalk from 'chalk'
 import inquirer from 'inquirer';
+import baseQuestions from './questions/baseQuestions.js';
 const log = console.log;
 
 // obv a cool console log to start the application
-log(chalk.green('\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'))
-log(chalk.blue('\\\\\\\\RESUME\\\\\\\\\\\\\\\\'))
-log(chalk.blue('\\\\\\\\\\\\BUILDER\\\\\\\\\\\\\\'))
-log(chalk.yellow('\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'))
+log(chalk.red('\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'))
+log(chalk.red('\\\\\\\\RESUME\\\\\\\\\\\\\\\\'))
+log(chalk.red('\\\\\\\\\\\\BUILDER\\\\\\\\\\\\\\'))
+log(chalk.red('\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'))
 
 // resume input questions
-inquirer.prompt([
-    {
-        type: "input",
-        name: "fullName",
-        message: log(chalk.green('What is your full name?')),
-        validate: (fullName) => {
-            if(!fullName) {
-                log(chalk.red('/// PLEASE INPUT YOUR FULL NAME ///'))
-            }
-        }
-    },
-    
-])
+inquirer.prompt(baseQuestions)
