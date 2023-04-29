@@ -43,7 +43,7 @@ const baseQuestions = [
     name: "github",
     message: chalk.red("What is your github url?"),
     validate: (github) => {
-      if (github) {
+      if (!github) {
         log(chalk.red("/// PLEASE INPUT YOUR GITHUB URL ///"));
       } else {
         return true;

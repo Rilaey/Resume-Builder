@@ -2,6 +2,7 @@
 import chalk from 'chalk'
 import inquirer from 'inquirer';
 import baseQuestions from './questions/baseQuestions.js';
+import projectQuestions from './questions/projectQuestions.js';
 const log = console.log;
 
 // obv a cool console log to start the application
@@ -11,4 +12,9 @@ log(chalk.red('\\\\\\\\\\\\BUILDER\\\\\\\\\\\\\\'))
 log(chalk.red('\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'))
 
 // resume input questions
-inquirer.prompt(baseQuestions)
+const askQuestions = async () => {
+    await inquirer.prompt(baseQuestions)
+    await inquirer.prompt(projectQuestions)
+}
+
+askQuestions()
