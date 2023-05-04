@@ -82,7 +82,7 @@ const projectQuestions = [
     type: "input",
     name: "keyItemThree",
     message: chalk.blue(
-      "Please enter your third bullet point of this project. IF NO MORE BULLET POINTS ENTER NONE"
+      "Please enter your third bullet point of this project."
     ),
     validate: (keyItemThree) => {
       if (!keyItemThree) {
@@ -91,8 +91,38 @@ const projectQuestions = [
             "/// PLEASE INPUT YOUR THIRD BULLET POINT FOR THIS PROJECT ///"
           )
         );
-      } else if (keyItemThree == "none") {
+      } else {
         return true;
+      }
+    }
+  },
+  {
+    type: "input",
+    name: "frontEndToolsUsed",
+    message: chalk.blue("What front end tools did you use for this project?"),
+    validate: (frontEndToolsUsed) => {
+      if (!frontEndToolsUsed) {
+        log(
+          chalk.red(
+            "/// PLEASE INPUT YOUR FRONT END TOOLS USED FOR THIS PROJECT ///"
+          )
+        );
+      } else {
+        return true;
+      }
+    }
+  },
+  {
+    type: "input",
+    name: "backEndToolsUsed",
+    message: chalk.blue("What back end tools did you use for this project?"),
+    validate: (backEndToolsUsed) => {
+      if (!backEndToolsUsed) {
+        log(
+          chalk.red(
+            "/// PLEASE INPUT YOUR BACK END TOOLS USED FOR THIS PROJECT ///"
+          )
+        );
       } else {
         return true;
       }

@@ -4,7 +4,7 @@ const log = console.log;
 const baseQuestions = [
   {
     type: "input",
-    name: "name",
+    name: "fullName",
     message: chalk.red("What is your full name?"),
     validate: (fullName) => {
       if (!fullName) {
@@ -23,6 +23,18 @@ const baseQuestions = [
         log(chalk.red("/// PLEASE INPUT YOUR CITY ///"));
       } else {
         return true;
+      }
+    }
+  },
+  {
+    type: "input",
+    name: "state",
+    message: chalk.red("What state are you located in?"),
+    validate: (state) => {
+      if (!state) {
+        log(chalk.red("/// PLEASE INPUT YOUR STATE ///"));
+      } else {
+        return true
       }
     }
   },
@@ -63,7 +75,19 @@ const baseQuestions = [
     }
   },
   {
-    input: "text",
+    type: "input",
+    name: "personalSummary",
+    message: chalk.red("What is your personal summary?"),
+    validate: (personalSummary) => {
+      if (!personalSummary) {
+        log(chalk.red("/// PLEASE INPUT YOUR SUMMARY ///"));
+      } else {
+        return true
+      }
+    }
+  },
+  {
+    input: "input",
     name: "frontEndSkills",
     message: chalk.red(
       "What are your front end skills? Separate each skill with a comma."
