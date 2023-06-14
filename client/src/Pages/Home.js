@@ -1,12 +1,12 @@
-import React from 'react'
-import PersonalInformation from '../Components/PersonalInformation'
+import React from "react";
+import PersonalInformation from "../Components/PersonalInformation";
+import Summary from "../Components/Summary";
 
 export default function Home() {
   return (
     <div>
-        <div>
-            <PersonalInformation />
-        </div>
+      <PersonalInformation />
+      <Summary />
     </div>
-  )
+  );
 }
