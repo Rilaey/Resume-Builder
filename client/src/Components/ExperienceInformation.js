@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MyDataContext } from "../Pages/Home";
 
-export default function ExperienceInformation({ jobTitle, startDate, endDate, company, locationCity, locationState, jobSummary, keyAccomplishmentOne, keyAccomplishmentTwo }) {
+export default function ExperienceInformation() {
+  const data = useContext(MyDataContext);
+
+  const {
+    jobTitle,
+    startDate,
+    endDate,
+    company,
+    locationCity,
+    locationState,
+    jobSummary,
+    keyAccomplishmentOne,
+    keyAccomplishmentTwo
+  } = data
+
   return (
     <div className='flex flex-col justify-center items-center'>
       <div>

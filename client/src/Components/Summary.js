@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyDataContext } from "../Pages/Home";
 
-export default function Summary({ summary, frontEndSkills, backEndSkills }) {
+export default function Summary() {
+  const data = useContext(MyDataContext);
+
+  const {
+    frontEndSkills,
+    backEndSkills,
+    summary
+  } = data
+
   return (
     <div className="flex flex-wrap flex-col items-center justify-center">
       <div>

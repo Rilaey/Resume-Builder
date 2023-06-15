@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MyDataContext } from "../Pages/Home";
 
-export default function ProjectInformation({ title, gitHubLink, applicationLink, keyPointOne, keyPointTwo, keyPointThree, frontTools, backTools }) {
+export default function ProjectInformation() {
+  const data = useContext(MyDataContext);
+
+  const {
+    title,
+    gitHubLink,
+    applicationLink,
+    keyPointOne,
+    keyPointTwo,
+    keyPointThree,
+    frontTools,
+    backTools
+  } = data
+
   return (
     <div className='flex flex-col justify-center items-center'>
       <div>

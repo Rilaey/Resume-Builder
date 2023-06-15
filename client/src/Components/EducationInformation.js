@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyDataContext } from "../Pages/Home";
 
-export default function EducationInformation({
-  awardReceived,
-  school,
-  schoolCity,
-  schoolState,
-  schoolSummary,
-  schoolStartDate,
-  schoolEndDate
-}) {
+export default function EducationInformation() {
+  const data = useContext(MyDataContext);
+
+  const {
+    awardReceived,
+    school,
+    schoolCity,
+    schoolState,
+    schoolSummary,
+    schoolStartDate,
+    schoolEndDate
+  } = data;
+
   return (
     <div className="flex flex-col justify-center items-center">
       <div>
@@ -62,8 +67,13 @@ export default function EducationInformation({
             className="input input-bordered input-primary  max-w-xs m-3"
           />
         </div>
-        <div className='flex flex-row flex-wrap justify-center items-center'>
-          <textarea className="textarea textarea-primary w-full m-3"  name="jobSummary" placeholder="Job Summary"></textarea>
+        <div className="flex flex-row flex-wrap justify-center items-center">
+          <textarea
+            className="textarea textarea-primary w-full m-3"
+            value={schoolSummary}
+            name="jobSummary"
+            placeholder="Job Summary"
+          ></textarea>
         </div>
       </div>
     </div>
