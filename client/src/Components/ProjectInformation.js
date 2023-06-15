@@ -1,19 +1,16 @@
 import React, { useContext } from 'react'
 import { MyDataContext } from "../Pages/Home";
 
-export default function ProjectInformation() {
+export default function ProjectInformation({ setFormState }) {
   const data = useContext(MyDataContext);
 
-  const {
-    title,
-    gitHubLink,
-    applicationLink,
-    keyPointOne,
-    keyPointTwo,
-    keyPointThree,
-    frontTools,
-    backTools
-  } = data
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   return (
     <div className='flex flex-col justify-center items-center'>
@@ -25,21 +22,24 @@ export default function ProjectInformation() {
           <input
               type="text"
               name="title"
-              value={title}
+              value={data.title}
+              onChange={handleInputChange}
               placeholder="Title"
               className="input input-bordered input-primary  max-w-xs m-3"
             />
           <input
               type="text"
               name="gitHubLink"
-              value={gitHubLink}
+              value={data.gitHubLink}
+              onChange={handleInputChange}
               placeholder="Github Repo Link"
               className="input input-bordered input-primary  max-w-xs m-3"
             />
           <input
               type="text"
               name="applicationLink"
-              value={applicationLink}
+              value={data.applicationLink}
+              onChange={handleInputChange}
               placeholder="Live Application Link"
               className="input input-bordered input-primary  max-w-xs m-3"
             />
@@ -49,22 +49,24 @@ export default function ProjectInformation() {
           <input
               type="text"
               name="frontTools"
-              value={frontTools}
+              value={data.frontTools}
+              onChange={handleInputChange}
               placeholder="Front End Tools Used"
               className="input input-bordered input-primary  max-w-xs m-3"
             />
           <input
               type="text"
               name="backTools"
-              value={backTools}
+              value={data.backTools}
+              onChange={handleInputChange}
               placeholder="Back End Tools Used"
               className="input input-bordered input-primary  max-w-xs m-3"
             />
         </div>
         <div className='flex flex-row flex-wrap justify-center items-center'>
-          <textarea className="textarea textarea-primary w-full m-3" value={keyPointOne} name="keyPointOne" placeholder="Key Point One"></textarea>
-          <textarea className="textarea textarea-primary w-full m-3" value={keyPointTwo} name="keyPointTwo" placeholder="Key Point Two"></textarea>
-          <textarea className="textarea textarea-primary w-full m-3" value={keyPointThree} name="keyPointThree" placeholder="Key Point Three"></textarea>
+          <textarea className="textarea textarea-primary w-full m-3" value={data.keyPointOne} onChange={handleInputChange} name="keyPointOne" placeholder="Key Point One"></textarea>
+          <textarea className="textarea textarea-primary w-full m-3" value={data.keyPointTwo} onChange={handleInputChange} name="keyPointTwo" placeholder="Key Point Two"></textarea>
+          <textarea className="textarea textarea-primary w-full m-3" value={data.keyPointThree} onChange={handleInputChange} name="keyPointThree" placeholder="Key Point Three"></textarea>
         </div>
       </div>
     </div>

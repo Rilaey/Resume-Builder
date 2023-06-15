@@ -1,18 +1,16 @@
 import React, { useContext } from "react";
 import { MyDataContext } from "../Pages/Home";
 
-export default function EducationInformation() {
+export default function EducationInformation({ setFormState}) {
   const data = useContext(MyDataContext);
 
-  const {
-    awardReceived,
-    school,
-    schoolCity,
-    schoolState,
-    schoolSummary,
-    schoolStartDate,
-    schoolEndDate
-  } = data;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -24,21 +22,24 @@ export default function EducationInformation() {
           <input
             type="text"
             name="school"
-            value={school}
+            value={data.school}
+            onChange={handleInputChange}
             placeholder="School"
             className="input input-bordered input-primary  max-w-xs m-3"
           />
           <input
             type="text"
             name="schoolCity"
-            value={schoolCity}
+            value={data.schoolCity}
+            onChange={handleInputChange}
             placeholder="City"
             className="input input-bordered input-primary  max-w-xs m-3"
           />
           <input
             type="text"
             name="schoolState"
-            value={schoolState}
+            value={data.schoolState}
+            onChange={handleInputChange}
             placeholder="State"
             className="input input-bordered input-primary  max-w-xs m-3"
           />
@@ -48,21 +49,24 @@ export default function EducationInformation() {
           <input
             type="text"
             name="awardReceived"
-            value={awardReceived}
+            value={data.awardReceived}
+            onChange={handleInputChange}
             placeholder="Diploma"
             className="input input-bordered input-primary  max-w-xs m-3"
           />
           <input
             type="text"
             name="schoolStartDate"
-            value={schoolStartDate}
+            value={data.schoolStartDate}
+            onChange={handleInputChange}
             placeholder="Start Date"
             className="input input-bordered input-primary  max-w-xs m-3"
           />
           <input
             type="text"
             name="schoolEndDate"
-            value={schoolEndDate}
+            value={data.schoolEndDate}
+            onChange={handleInputChange}
             placeholder="End Date"
             className="input input-bordered input-primary  max-w-xs m-3"
           />
@@ -70,9 +74,10 @@ export default function EducationInformation() {
         <div className="flex flex-row flex-wrap justify-center items-center">
           <textarea
             className="textarea textarea-primary w-full m-3"
-            value={schoolSummary}
-            name="jobSummary"
-            placeholder="Job Summary"
+            value={data.schoolSummary}
+            onChange={handleInputChange}
+            name="schoolSummary"
+            placeholder="School Summary"
           ></textarea>
         </div>
       </div>
