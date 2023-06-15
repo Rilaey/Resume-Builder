@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function ProjectOneInformation({ title, gitHubLink, applicationLink, keyPointOne, keyPointTwo, keyPointThree, frontTools, backTools }) {
+export default function ProjectInformation({ title, gitHubLink, applicationLink, keyPointOne, keyPointTwo, keyPointThree, frontTools, backTools }) {
   return (
     <div className='flex flex-col justify-center items-center'>
       <div>
-        <h2 className='text-2xl m-5'>Project One Information</h2>
+        <h2 className='text-2xl m-5'>Projects</h2>
       </div>
       <div className='flex flex-col flex-wrap justify-center items-center'>
         <div className='flex flex-row flex-wrap justify-center items-center'>
