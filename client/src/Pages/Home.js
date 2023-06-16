@@ -1,9 +1,11 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import PersonalInformation from "../Components/PersonalInformation";
 import Summary from "../Components/Summary";
 import ProjectInformation from "../Components/ProjectInformation";
 import ExperienceInformation from "../Components/ExperienceInformation";
 import EducationInformation from "../Components/EducationInformation";
+import jsPDF from "jspdf";
+import axios from "axios";
 
 export const MyDataContext = createContext();
 
@@ -45,10 +47,36 @@ export default function Home() {
     keyAccomplishmentTwo: ""
   });
 
+  useEffect(() => {
+    // Fetch the HTML template when the component mounts
+    fetchTemplate();
+  }, []);
+
+  const fetchTemplate = () => {
+    axios.get("./template.html").then((response) => {
+      // Set the template content in the form state
+      setFormState((prevState) => ({
+        ...prevState,
+        template: response.data,
+      }));
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formState)
+
+    const doc = new jsPDF();
+
+    // Access the template from the form state
+    const template = formState.template;
+
+    // Generate the PDF
+    doc.fromHTML(template, 15, 15, {
+      width: 170,
+    });
+
+    doc.save("test123.pdf");
 
     setFormState({
       firstName: "",
