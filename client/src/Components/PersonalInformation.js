@@ -38,6 +38,22 @@ export default function PersonalInformation({  setFormState }) {
           />
           <input
             type="text"
+            name="personalCity"
+            value={data.personalCity}
+            onChange={handleInputChange}
+            placeholder="City"
+            className="input input-bordered input-primary max-w-xs m-3"
+          />
+          <input
+            type="text"
+            name="personalState"
+            value={data.personalState}
+            onChange={handleInputChange}
+            placeholder="State"
+            className="input input-bordered input-primary max-w-xs m-3"
+          />
+          <input
+            type="text"
             name="phoneNumber"
             value={data.phoneNumber}
             onChange={handleInputChange}

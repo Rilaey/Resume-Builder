@@ -4,8 +4,8 @@ import Summary from "../Components/Summary";
 import ProjectInformation from "../Components/ProjectInformation";
 import ExperienceInformation from "../Components/ExperienceInformation";
 import EducationInformation from "../Components/EducationInformation";
-import jsPDF from "jspdf";
-import axios from "axios";
+import html2pdf from "html2pdf.js";
+import { generateTemplateHtml } from "../Utils/generateTemplateHtml";
 
 export const MyDataContext = createContext();
 
@@ -47,40 +47,27 @@ export default function Home() {
     keyAccomplishmentTwo: ""
   });
 
-  useEffect(() => {
-    // Fetch the HTML template when the component mounts
-    fetchTemplate();
-  }, []);
-
-  const fetchTemplate = () => {
-    axios.get("./template.html").then((response) => {
-      // Set the template content in the form state
-      setFormState((prevState) => ({
-        ...prevState,
-        template: response.data,
-      }));
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const templateHtml = generateTemplateHtml(formState);
 
-    const doc = new jsPDF();
+    // Continue with the PDF generation using the template
+    const opt = {
+      margin: 0.5,
+      filename: "output.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
+    };
 
-    // Access the template from the form state
-    const template = formState.template;
-
-    // Generate the PDF
-    doc.fromHTML(template, 15, 15, {
-      width: 170,
-    });
-
-    doc.save("test123.pdf");
+    await html2pdf().set(opt).from(templateHtml).save();
 
     setFormState({
       firstName: "",
       lastName: "",
+      personalCity: "",
+      personalState: "",
       phoneNumber: "",
       email: "",
       linkedIn: "",
@@ -118,13 +105,18 @@ export default function Home() {
 
   return (
     <MyDataContext.Provider value={formState}>
-      <form className="flex flex-col justify-center m-10" onSubmit={handleSubmit}>
+      <form
+        className="flex flex-col justify-center m-10"
+        onSubmit={handleSubmit}
+      >
         <PersonalInformation setFormState={setFormState} />
         <Summary setFormState={setFormState} />
         <ProjectInformation setFormState={setFormState} />
         <ExperienceInformation setFormState={setFormState} />
         <EducationInformation setFormState={setFormState} />
-        <button type="submit" className="btn btn-success">Success</button>
+        <button type="submit" className="btn btn-success">
+          Submit
+        </button>
       </form>
     </MyDataContext.Provider>
   );
