@@ -1,27 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Header() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl" href="/">Resume Builder</a>
+        <a className="btn btn-ghost normal-case text-xl" href="/">
+          Resume Builder
+        </a>
       </div>
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block w-5 h-5 stroke-current"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </button>
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <details>
+              <summary>Menu</summary>
+              <ul className="bg-base-100">
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                {loggedIn ? (
+                  <li>
+                    <a href="/signUp">Sign Out</a>
+                  </li>
+                ) : (
+                  <li>
+                    <a href="/signUp">Sign In</a>
+                  </li>
+                )}
+              </ul>
+            </details>
+          </li>
+        </ul>
       </div>
     </div>
   );

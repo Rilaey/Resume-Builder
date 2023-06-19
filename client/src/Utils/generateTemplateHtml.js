@@ -1,7 +1,6 @@
 export const styles = `
   * {
   margin: auto 0;
-  background-color: gray;
 }
 
 .header-layout, .tech-skills-section, .summary-section, .education-section {
