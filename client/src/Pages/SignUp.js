@@ -15,7 +15,7 @@ export default function SignUp() {
           </div>
           <div className='flex'>
             <input type="text" placeholder="Email" className="input input-bordered input-primary w-full max-w-xs  m-5 " />
-            <input type="text" placeholder="Phone Number" className="input input-bordered input-primary w-full max-w-xs m-5 " />
+            <input type="text" placeholder="Password" className="input input-bordered input-primary w-full max-w-xs m-5 " />
           </div>
           <div>
             <p>Already have an account? Click <a href='/signIn' className='underline'>Here</a> </p>
