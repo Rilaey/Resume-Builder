@@ -18,6 +18,9 @@ export default function SignUp() {
             <input type="text" placeholder="Phone Number" className="input input-bordered input-primary w-full max-w-xs m-5 " />
           </div>
           <div>
+            <p>Already have an account? Click <a href='/signIn' className='underline'>Here</a> </p>
+          </div>
+          <div>
             <button type="submit" className="btn btn-success m-5"> Sign Up </button>
           </div>
         </form>
