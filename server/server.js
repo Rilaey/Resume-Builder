@@ -9,9 +9,9 @@ const routes = require("./routes/index")
 const db = require("./config/connection");
 
 // MIDDLEWARE
-app.use(routes)
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(routes)
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));

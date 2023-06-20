@@ -1,4 +1,4 @@
-const User = require("../models/index");
+const { User } = require("../models");
 
 // get all accounts
 const getAllAccounts = async (req, res) => {
@@ -31,7 +31,7 @@ const createUser = async (req, res) => {
       userFirstName: req.body.userFirstName,
       userLastName: req.body.userLastName,
       userEmail: req.body.userEmail,
-      userPassword: req.body.password
+      userPassword: req.body.userPassword
     });
 
     res.status(200).json(user);
