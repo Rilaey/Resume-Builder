@@ -12,6 +12,18 @@ const getAllAccounts = async (req, res) => {
   }
 };
 
+// get one account by id
+const getOneAccount = async (req, res) => {
+  try {
+    const user = await User.findOneById(req.params.id)
+
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(`Error: ${err}`);
+    res.status(500).json(err);
+  }
+}
+
 // create new account
 const createUser = async (req, res) => {
   try {
@@ -29,4 +41,4 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getAllAccounts };
+module.exports = { createUser, getAllAccounts, getOneAccount };
