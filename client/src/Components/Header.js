@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 export default function Header() {
-  const [loggedIn, setLoggedIn] = useState(false);
-
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -19,15 +17,12 @@ export default function Header() {
                 <li>
                   <a href="/">Home</a>
                 </li>
-                {loggedIn ? (
-                  <li>
-                    <a href="/signUp">Sign Out</a>
-                  </li>
-                ) : (
-                  <li>
-                    <a href="/signUp">Sign In</a>
-                  </li>
-                )}
+                <li>
+                  <a href="/signUp">Sign Up</a>
+                </li>
+                <li>
+                  <a href="/signIn">Sign In</a>
+                </li>
               </ul>
             </details>
           </li>

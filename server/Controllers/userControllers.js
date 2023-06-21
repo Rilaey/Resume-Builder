@@ -24,6 +24,22 @@ const getOneAccount = async (req, res) => {
   }
 }
 
+// login. get users account by email and password
+const loginUser = async (req, res) => {
+  try {
+    const user = await User.findOne({
+      userEmail: req.body.userEmail,
+      userPassword: req.body.userPassword
+    })
+
+    res.status(200).json(user)
+    console.log("login working!!!")
+  } catch (err) {
+    console.log(`Error: ${err}`)
+    res.status(500).json(err)
+  }
+}
+
 // create new account
 const createUser = async (req, res) => {
   try {
@@ -41,4 +57,4 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getAllAccounts, getOneAccount };
+module.exports = { createUser, getAllAccounts, getOneAccount, loginUser };
