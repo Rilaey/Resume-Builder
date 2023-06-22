@@ -54,7 +54,10 @@ export default function SignIn() {
         />
       </div>
       <div>
-        <form className="flex flex-col justify-center items-center" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col justify-center items-center"
+          onSubmit={handleSubmit}
+        >
           <div>
             <input
               type="email"
