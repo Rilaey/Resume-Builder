@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import auth from "../Utils/auth"
 import LoginFormPicture from "../images/login-form-pic.jpeg";
 
 export default function SignIn() {
@@ -36,6 +37,10 @@ export default function SignIn() {
       .then((data) => {
         // Handle the response data
         navigate(`/profile/${data._id}`);
+        console.log(data)
+
+        // ERR GETTING UNDEFINED FOR ID_TOKEN IN STORAGE
+        // auth.login()
       })
       .catch((error) => {
         // Handle any errors
