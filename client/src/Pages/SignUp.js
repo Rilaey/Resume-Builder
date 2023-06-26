@@ -38,7 +38,7 @@ export default function SignUp() {
       .then((response) => response.json())
       .then((data) => {
         // Handle the response data
-        navigate(`/profile/${data._id}`);
+        navigate(`/profileDashboard/${data._id}`);
       })
       .catch((error) => {
         // Handle any errors

@@ -10,9 +10,9 @@ export default function ProfileNav() {
         className="w-1/2 m-1"
         style={{ borderRadius: "50%", height: "23vh" }}
       />
-      <a className="m-1">Home</a>
-      <a className="m-1">Settings</a>
-      <a className="m-1">Log Out</a>
+      <button className="btn btn-ghost"><a className="m-1" href="/profileDashboard/:id">Dashboard</a></button>
+      <button className="btn btn-ghost"><a className="m-1" href="/profileSettings/:id">Settings</a></button>
+      <button className="btn btn-ghost"><a className="m-1" href="/profileResumes/:id">Resumes</a></button>
     </div>
   );
 }

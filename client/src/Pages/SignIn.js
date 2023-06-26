@@ -36,7 +36,7 @@ export default function SignIn() {
       .then((response) => response.json())
       .then((data) => {
         // Handle the response data
-        navigate(`/profile/${data._id}`);
+        navigate(`/profileDashboard/${data._id}`);
         console.log(data)
 
         // ERR GETTING UNDEFINED FOR ID_TOKEN IN STORAGE
